@@ -4,12 +4,69 @@ import Header from "./components/Header"
 import Guitar from "./components/Guitar"
 
 function App() {
-    //State
+    const maxItems = 5
+    // State
     const [data, setData] = useState(db)
+    const [cart, setCart] = useState([])
+
+    // Functions
+    function addToCart(item) {
+        const itemExist = cart.findIndex((guitar) => guitar.id === item.id)
+        if (itemExist >= 0) {
+            if (cart[itemExist].quantity >= maxItems) return
+            // Codigo para no mutar el Array
+            const updateCart = [...cart]
+            updateCart[itemExist].quantity++
+            setCart(updateCart)
+        } else {
+            item.quantity = 1
+            setCart([...cart, item]) // Para no mutar
+        }
+    }
+
+    function removeFromCart(item) {
+        setCart(prevCart => prevCart.filter(guitar => guitar.id !== item))
+    }
+
+    function decreaseQuantity(itemId) {
+        const updateCart = cart.map(item => {
+            if (item.id === itemId && item.quantity > 1) {
+                return {
+                   ...item,
+                    quantity: item.quantity - 1
+                }
+            }
+            return item
+        })
+        setCart(updateCart)
+    }
+
+    function increaseQuantity(itemId) {
+        const updateCart = cart.map(item => {
+            if (item.id === itemId && item.quantity < maxItems) {
+                return {
+                    ...item,
+                    quantity: item.quantity + 1
+                }
+            }
+            return item
+        })
+        setCart(updateCart)
+    }
+
+    function clearCart() {
+        setCart([])
+    }
 
     return (
         <>
-        <Header />
+        <Header
+            cart={cart}
+            removeFromCart={removeFromCart}
+            decreaseQuantity={decreaseQuantity}
+            increaseQuantity={increaseQuantity}
+            clearCart={clearCart}
+        />
         <main className="container-xl mt-5">
             <h2 className="text-center">Nuestra Colección</h2>
             <div className="row mt-5">
@@ -17,6 +74,7 @@ function App() {
                     <Guitar
                         key={guitar.id}
                         guitar={guitar}
+                        addToCart={addToCart}
                     />
                 ))}
             </div>
