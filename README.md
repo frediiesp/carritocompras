@@ -1,6 +1,6 @@
 # Carrito de Compras
 
-![Carrito de Compras](https://carritocompras-iota.vercel.app/screenshot.png)
+![Carrito de Compras](https://github.com/frediiesp/carritocompras/blob/master/screenshot.png)
 
 ## Descripción
 
