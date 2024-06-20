@@ -51,6 +51,6 @@ El proyecto está desplegado en Vercel y puedes acceder a la aplicación en el s
 
 ## Contacto
 
-Si tienes alguna pregunta o sugerencia, no dudes en contactarme a través de [byfrediiesp@gmail.com](byfrediiesp@gmail.com).
+Si tienes alguna pregunta o sugerencia, no dudes en contactarme a través de [byfrediiesp@gmail.com](mailto:byfrediiesp@gmail.com).
 
 ¡Gracias por visitar mi proyecto!
