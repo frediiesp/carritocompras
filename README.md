@@ -1,6 +1,6 @@
 # Carrito de Compras
 
-![Carrito de Compras](https://github.com/frediiesp/carritocompras/blob/master/screenshot.png)
+![Carrito de Compras](https://github.com/frediiesp/carritocompras/blob/master/screenshot.webp)
 
 ## Descripción
 
